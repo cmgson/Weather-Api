@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forcast</title>
+    <!-- font-awesome for buttons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Links to bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <!-- link to style sheet -->
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="jumbotron" style="background-color: rgb(48, 48, 48)">
+      <h1 class="display-4" style="color: white; text-align: center">
+        Weather Dashboard
+      </h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-sm-4"
+          style="background-color: grey;"
+        >
+        <h3>Search for a city:</h3>
+          <form class="example" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search" />
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+          <div class="cityBtn"></div>
+          <div id="results">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+          </div>
+        </div>
+        <div class="col-sm-8">
+            <div id="weatherReport" style="border: solid 1px; padding-left: 20px;">
+                <h2 id="city">Atlanta (8/15/2019)</h2>
+                <p id="Temp">Temperature: 90.9 F</p>
+                <p id="humidity">Humidity: 41%</p>
+                <p id="wind">Wind Speed: 4.7mph</p>
+                <p id="index">UV Index: 9.49</p>
+                <br>
+            </div>
+            <div id="forecast" style="padding-top: 15px;">
+                <h2>5-Day Forcast:</h2>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Jquery cdn -->
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"
+  ></script>
+  <!-- link to javascript file -->
+  <script src="assets/script.js"></script>
+</html>
