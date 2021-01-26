@@ -33,85 +33,92 @@
     </div>
     <div class="container">
       <div class="row">
-        <div
-          class="col-sm-4"
-          style="background-color: grey;"
-        >
-        <h3>Search for a city:</h3>
-          <form class="example" action="action_page.php">
-            <input type="text" placeholder="Search.." name="search" />
-            <button type="submit"><i class="fa fa-search"></i></button>
+        <div class="col-sm-4" style="background-color: grey">
+          <h3>Search for a city:</h3>
+          <form class="example" action="">
+            <input
+              id="searchField"
+              type="text"
+              placeholder="Search.."
+              name="search"
+            />
+            <button type="submit" id="searchBtn">
+              <i class="fa fa-search"></i>
+            </button>
           </form>
           <div class="cityBtn"></div>
-          <div id="results">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-          </div>
+          <div id="results"></div>
         </div>
         <div class="col-sm-8">
-            <div id="weatherReport" style="border: solid 1px; padding-left: 20px;">
-                <h2 id="city"></h2>
-                <p id="temp">Temperature: 90.9 &deg; F</p>
-                <p id="humidity">Humidity: 41%</p>
-                <p id="wind">Wind Speed: 4.7mph</p>
-                <p id="index">UV Index: 9.49</p>
-                <br>
-            </div>
+          <div id="weatherReport" style="border: solid 1px; padding-left: 20px">
+            <h2 id="city"></h2>
+            <p id="temp"></p>
+            <p id="humidity"></p>
+            <p id="wind"></p>
+            <p id="index"></p>
+            <br />
+          </div>
 
-            <div class="fiveDay" style="padding-top: 15px;">
-                <h2>5-Day Forcast:</h2>
-            </div>
-            <div class="row fiveDay">
-              <div class="col-sm-2" style="margin-inline: 10px;" id="day1">
-                <div class="card" style="width: 144px;">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2" style="margin-inline: 10px;" id="day2">
-                <div class="card" style="width: 144px;">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2" style="margin-inline: 10px;" id="day3">
-                <div class="card" style="width: 144px;">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2" style="margin-inline: 10px;" id="day4">
-                <div class="card" style="width: 144px;">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2" style="margin-inline: 10px;" id="day5">
-                <div class="card" style="width: 144px;">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p></p>
-                  </div>
+          <div class="fiveDay" style="padding-top: 15px">
+            <h2>5-Day Forcast:</h2>
+          </div>
+          <div class="row fiveDay">
+            <div class="col-sm-2" style="margin-inline: 10px" id="day1">
+              <div class="card" style="width: 144px">
+                <div class="card-body">
+                  <h5 class="card-title" id="forecast1">Date</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                  <p class="icon">image</p>
+                  <p class="forecastTemp">temp</p>
+                  <p class="forecastHumidity">humidity</p>
                 </div>
               </div>
             </div>
-
+            <div class="col-sm-2" style="margin-inline: 10px" id="day2">
+              <div class="card" style="width: 144px">
+                <div class="card-body">
+                  <h5 class="card-title" id="forecast2">Date</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="icon">image</p>
+                  <p class="forecastTemp">temp</p>
+                  <p class="forecastHumidity">humidity</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2" style="margin-inline: 10px" id="day3">
+              <div class="card" style="width: 144px">
+                <div class="card-body">
+                  <h5 class="card-title" id="forecast3">Date</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                  <p class="icon">image</p>
+                  <p class="forecastTemp">temp</p>
+                  <p class="forecastHumidity">humidity</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2" style="margin-inline: 10px" id="day4">
+              <div class="card" style="width: 144px">
+                <div class="card-body">
+                  <h5 class="card-title" id="forecast4">Date</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                  <p class="icon">image</p>
+                  <p class="forecastTemp">temp</p>
+                  <p class="forecastHumidity">humidity</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2" style="margin-inline: 10px" id="day5">
+              <div class="card" style="width: 144px">
+                <div class="card-body">
+                  <h5 class="card-title" id="forecast5">Date</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                  <p class="icon">image</p>
+                  <p class="forecastTemp">temp</p>
+                  <p class="forecastHumidity">humidity</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -125,5 +132,9 @@
   <!-- link to javascript file -->
   <script src="assets/script.js"></script>
   <!-- link to moment.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"
+  ></script>
 </html>
