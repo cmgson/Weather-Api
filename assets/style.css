@@ -1,3 +1,13 @@
+h1 {
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(152, 199, 230);
+  font-size: large;
+}
+
 * {
     box-sizing: border-box;
   }
@@ -34,5 +44,53 @@
     content: "";
     clear: both;
     display: table;
+  }
+
+  .divRender {
+    margin: 20px;
+    text-align:center;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 15px;
+  }
+
+  #weatherReport {
+    border-radius: 15px;
+    border: solid 1px;
+    border-color: grey;
+    background-color: rgba(29, 101, 255, 0.959);
+    padding-left: 20px;
+    box-shadow: 5px 5px cornflowerblue;
+  }
+
+  #questionBlock {
+    border: solid 1px;
+    border-color: grey;
+    border-radius: 15px;
+    background-color: rgba(29, 101, 255, 0.959);
+     padding: 60px;
+     box-shadow: 5px 5px cornflowerblue;
+  }
+
+  #currentDate {
+    text-align: center;
+    color: white;
+  }
+
+  .jumbotron {
+    margin-bottom: 10px;
+    border: solid 1px;
+    border-color: grey;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: rgb(48, 48, 48);
+  }
+
+  .card {
+    border: solid 1px;
+    border-color: grey;
+    width: 144px;
+    background-color:rgba(29, 101, 255, 0.959);
+    box-shadow: 5px 5px cornflowerblue;
   }
   
