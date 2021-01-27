@@ -22,7 +22,21 @@ $cityArray = [];
 
 $fiveDay.hide();
 $weatherReport.hide();
-console.log($searchField);
+ var cities = JSON.parse(localStorage.getItem('cities'));
+ console.log(cities);
+ for (var i = 0; i <= cities.length; i++) {
+  $createButton = $('<div>');
+  $createButton.addClass('divRender');
+  $createButton.attr('data-city', cities[i]);
+  
+  var p = $('<p>').text(cities[i]);
+  $createButton.append(p);
+  console.log($createButton);
+  $('#results').prepend($createButton);
+ localStorage.setItem('cities', JSON.stringify(cities));
+
+ };
+ 
 //click event for search button that triggers the ajax routine
 $searchBtn.on("click", function () {
   weatherDisplay();
@@ -31,7 +45,7 @@ $searchBtn.on("click", function () {
     
     $grabCity = $("#searchField").val();
     $cityArray.push($grabCity);
-    console.log($grabCity);
+    // console.log($grabCity);
     $createButton = $('<div>');
     $createButton.addClass('divRender');
     $createButton.attr('data-city', $grabCity);
@@ -52,9 +66,9 @@ $searchBtn.on("click", function () {
     }).then(function (response) {
       $latRelay = response.coord.lat;
       $lonRelay = response.coord.lon;
-      console.log($latRelay);
-      console.log($lonRelay);
-      console.log(response);
+      // console.log($latRelay);
+      // console.log($lonRelay);
+      // console.log(response);
       $oneCallUrl =
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
         $latRelay +
@@ -63,14 +77,14 @@ $searchBtn.on("click", function () {
         "&units=imperial" +
         "&appid=" +
         $apiKey;
-      console.log(response.name);
+      // console.log(response.name);
       $paintCity.text(response.name);
 
       $.ajax({
         url: $oneCallUrl,
         method: "GET",
       }).then(function (response) {
-        console.log(response);
+        // console.log(response);
         $paintTemp.html("Temperature: " + response.current.temp + "&deg F");
         $paintHumid.text("Humidity: " + response.current.humidity + " %");
         $paintWind.text("Wind Speed: " + response.current.wind_speed + " MPH");
@@ -138,7 +152,7 @@ $searchBtn.on("click", function () {
     });
     console.log(moment().format("MM/DD/YYYY"));
    
-   console.log('this is the city array---' + $cityArray);
+    console.log('this is the city array---' + $cityArray);
     localStorage.setItem('cities', JSON.stringify($cityArray));
   };
 });
