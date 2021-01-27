@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Forcast</title>
-
+    <!-- link to moment -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 
     <!-- font-awesome for buttons -->
@@ -29,15 +29,15 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <div class="jumbotron" style="background-color: rgb(48, 48, 48)">
-      <h1 class="display-4" style="color: white; text-align: center">
-        Weather Dashboard
+    <div class="jumbotron">
+      <h1 class="display-4">
+        <b>Weather Dashboard</b>
       </h1>
       <h2 id="currentDate"></h2>
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-4" style="background-color: grey; padding: 60px;">
+        <div class="col-sm-4" id="questionBlock">
           <h3>Search for a city:</h3>
           <form class="example" action="">
             <input
@@ -54,7 +54,7 @@
           <div id="results"></div>
         </div>
         <div class="col-sm-8">
-          <div id="weatherReport" style="border: solid 1px; border-color: grey; background-color: rgba(29, 101, 255, 0.959); padding-left: 20px">
+          <div id="weatherReport">
             <h2 id="city">City</h2>
             <p id="temp">Temperature</p>
             <p id="humidity">Humidity</p>
@@ -68,7 +68,7 @@
           </div>
           <div class="row fiveDay">
             <div class="col-sm-2" style="margin-inline: 10px" id="day1">
-              <div class="card" style="width: 144px; background-color:grey">
+              <div class="card">
                 <div class="card-body">
                   <h5 class="card-title forecastDate">Date</h5>
                   <img class="icons" src="" alt="">
@@ -78,7 +78,7 @@
               </div>
             </div>
             <div class="col-sm-2" style="margin-inline: 10px" id="day2">
-              <div class="card" style="width: 144px; background-color:grey">
+              <div class="card">
                 <div class="card-body">
                   <h5 class="card-title forecastDate">Date</h5>
                   <img class="icons" src="" alt="">
@@ -88,7 +88,7 @@
               </div>
             </div>
             <div class="col-sm-2" style="margin-inline: 10px" id="day3">
-              <div class="card" style="width: 144px; background-color:grey">
+              <div class="card">
                 <div class="card-body">
                   <h5 class="card-title forecastDate">Date</h5>
                   <img class="icons" src="" alt="">
@@ -98,7 +98,7 @@
               </div>
             </div>
             <div class="col-sm-2" style="margin-inline: 10px" id="day4">
-              <div class="card" style="width: 144px; background-color:grey">
+              <div class="card">
                 <div class="card-body">
                   <h5 class="card-title forecastDate">Date</h5>
                   <img class="icons" src="" alt="">
@@ -108,7 +108,7 @@
               </div>
             </div>
             <div class="col-sm-2" style="margin-inline: 10px" id="day5">
-              <div class="card" style="width: 144px; background-color:grey">
+              <div class="card">
                 <div class="card-body">
                   <h5 class="card-title forecastDate">Date</h5>
                   <img class="icons" src="" alt="">
@@ -130,6 +130,4 @@
   ></script>
   <!-- link to javascript file -->
   <script src="assets/script.js"></script>
-  <!-- link to moment.js -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script> -->
 </html>
