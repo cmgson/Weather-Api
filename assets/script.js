@@ -17,24 +17,23 @@ $fiveDay = $(".fiveDay");
 $searchBtn = $("#searchBtn");
 $searchField = $("#searchField");
 $weatherReport = $("#weatherReport");
-$cityArray = [];
+$cityArray = JSON.parse(localStorage.getItem("cities"));
 // hide until populated
 
 $fiveDay.hide();
 $weatherReport.hide();
-var cities = JSON.parse(localStorage.getItem("cities"));
-console.log(cities);
-if (cities != null) {
-  for (var i = 0; i <= cities.length; i++) {
+// var cities = JSON.parse(localStorage.getItem("cities"));
+if ($cityArray != null) {
+  for (var i = 0; i < $cityArray.length; i++) {
     $createButton = $("<div>");
     $createButton.addClass("divRender");
-    $createButton.attr("data-city", cities[i]);
+    $createButton.attr("data-city", $cityArray[i]);
 
-    var p = $("<p>").text(cities[i]);
+    var p = $("<p>").text($cityArray[i]);
     $createButton.append(p);
     console.log($createButton);
     $("#results").prepend($createButton);
-    localStorage.setItem("cities", JSON.stringify(cities));
+    localStorage.setItem("cities", JSON.stringify($cityArray));
   };
 };
 
@@ -45,6 +44,7 @@ $searchBtn.on("click", function () {
     event.preventDefault();
 
     $grabCity = $("#searchField").val();
+    
     $cityArray.push($grabCity);
     // console.log($grabCity);
     $createButton = $("<div>");
@@ -151,5 +151,5 @@ $searchBtn.on("click", function () {
 
     console.log("this is the city array---" + $cityArray);
     localStorage.setItem("cities", JSON.stringify($cityArray));
-  }
+  };
 });
