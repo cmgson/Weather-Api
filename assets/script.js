@@ -33,26 +33,13 @@ if ($cityArray != null) {
     $createButton.append(p);
     console.log($createButton);
     $("#results").prepend($createButton);
-  };
+  }
 } else {
   $cityArray = [];
 }
 
-
-function weatherDisplay() {
+function weatherDisplay($grabCity) {
   event.preventDefault();
-  $grabCity = $("#searchField").val();
-  
-  $cityArray.push($grabCity);
-  // console.log($grabCity);
-  $createButton = $("<div>");
-  $createButton.addClass("divRender");
-  $createButton.attr("data-city", $grabCity);
-
-  var p = $("<p>").text($grabCity);
-  $createButton.append(p);
-
-  $("#results").prepend($createButton);
 
   $queryUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -84,11 +71,19 @@ function weatherDisplay() {
       url: $oneCallUrl,
       method: "GET",
     }).then(function (response) {
-      // console.log(response);
+     var uvi = response.current.uvi;
       $paintTemp.html("Temperature: " + response.current.temp + "&deg F");
       $paintHumid.text("Humidity: " + response.current.humidity + " %");
       $paintWind.text("Wind Speed: " + response.current.wind_speed + " MPH");
       $paintUVI.text("UV Index: " + response.current.uvi);
+      console.log(uvi);
+      if (uvi <= 2) {
+        $paintUvi.css('background-color', 'green');
+      } else if (uvi >= 3 && uvi < 5) {
+        $paintUvi.css('background-color', 'yellow');
+      } else if (uvi >= 6 && uvi < 8) {
+        $paintUvi.css('background-color', 'purple');
+      };
 
       //set up arrays for all data from the response
       $dates = [];
@@ -102,7 +97,7 @@ function weatherDisplay() {
       var iconUrl = "https://openweathermap.org/img/wn/";
 
       //for loops to populate arrays
-      for (var i = 0; i < 5; i++) {
+      for (var i = 1; i < 6; i++) {
         $saveTemp = response.daily[i].temp.day;
         $dailyTemp.push($saveTemp);
       }
@@ -112,7 +107,7 @@ function weatherDisplay() {
         $(this).html("Temp : " + $dailyTemp[index] + "&deg");
       });
 
-      for (var i = 0; i < 5; i++) {
+      for (var i = 1; i < 6; i++) {
         $saveIcons = response.daily[i].weather[0].icon;
         $dailyIcons.push($saveIcons);
       }
@@ -122,7 +117,7 @@ function weatherDisplay() {
         $(this).attr("src", iconUrl + $dailyIcons[index] + ".png");
       });
 
-      for (var i = 0; i < 5; i++) {
+      for (var i = 1; i < 6; i++) {
         $saveHumidity = response.daily[i].humidity;
         $dailyHumidity.push($saveHumidity);
       }
@@ -131,7 +126,7 @@ function weatherDisplay() {
         $(this).html("Humidity : " + $dailyHumidity[index] + "&deg");
       });
 
-      for (var i = 0; i < 5; i++) {
+      for (var i = 1; i < 6; i++) {
         $saveDate = response.daily[i].dt;
         $dateString = moment.unix($saveDate).format("MM/DD/YYYY");
         $dates.push($dateString);
@@ -153,5 +148,21 @@ function weatherDisplay() {
 
 //click event for search button that triggers the ajax routine
 $searchBtn.on("click", function () {
-  weatherDisplay();
+  $grabCity = $("#searchField").val();
+
+  $cityArray.push($grabCity);
+  // console.log($grabCity);
+  $createButton = $("<div>");
+  $createButton.addClass("divRender");
+  $createButton.attr("data-city", $grabCity);
+
+  var p = $("<p>").text($grabCity);
+  $createButton.append(p);
+
+  $("#results").prepend($createButton);
+  weatherDisplay($grabCity);
+});
+
+$(document).on('click', '.divRender', function(e){
+  weatherDisplay($(this).text())
 });
