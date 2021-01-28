@@ -33,16 +33,16 @@ if ($cityArray != null) {
     $createButton.append(p);
     console.log($createButton);
     $("#results").prepend($createButton);
-    $createButton.on("click", function() {
-      weatherDisplay($cityArray[i]);
-    });
   };
 } else {
   $cityArray = [];
 }
+
+
 function weatherDisplay() {
   event.preventDefault();
   $grabCity = $("#searchField").val();
+  
   $cityArray.push($grabCity);
   // console.log($grabCity);
   $createButton = $("<div>");
@@ -53,6 +53,7 @@ function weatherDisplay() {
   $createButton.append(p);
 
   $("#results").prepend($createButton);
+
   $queryUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     $grabCity +
