@@ -34,17 +34,19 @@ if ($cityArray != null) {
     console.log($createButton);
     $("#results").prepend($createButton);
     localStorage.setItem("cities", JSON.stringify($cityArray));
-  };
+  }
+} else {
+  $cityArray = [];
 };
 
 //click event for search button that triggers the ajax routine
 $searchBtn.on("click", function () {
+
   weatherDisplay();
   function weatherDisplay() {
+ 
     event.preventDefault();
-
     $grabCity = $("#searchField").val();
-    
     $cityArray.push($grabCity);
     // console.log($grabCity);
     $createButton = $("<div>");
@@ -147,9 +149,9 @@ $searchBtn.on("click", function () {
         $weatherReport.show();
       });
     });
-    console.log(moment().format("MM/DD/YYYY"));
-
     console.log("this is the city array---" + $cityArray);
     localStorage.setItem("cities", JSON.stringify($cityArray));
+    localStorage.setItem('')
   };
+
 });
