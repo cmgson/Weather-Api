@@ -19,7 +19,8 @@ $searchField = $("#searchField");
 $weatherReport = $("#weatherReport");
 $cityArray = JSON.parse(localStorage.getItem("cities"));
 // hide until populated
-
+console.log($cityArray[0]);
+window.onload = weatherDisplay($cityArray[0]);
 $fiveDay.hide();
 $weatherReport.hide();
 // var cities = JSON.parse(localStorage.getItem("cities"));
@@ -71,19 +72,20 @@ function weatherDisplay($grabCity) {
       url: $oneCallUrl,
       method: "GET",
     }).then(function (response) {
-     var uvi = response.current.uvi;
+      var uvi = response.current.uvi;
       $paintTemp.html("Temperature: " + response.current.temp + "&deg F");
       $paintHumid.text("Humidity: " + response.current.humidity + " %");
       $paintWind.text("Wind Speed: " + response.current.wind_speed + " MPH");
       $paintUVI.text("UV Index: " + response.current.uvi);
       console.log(uvi);
+      console.log($paintUVI);
       if (uvi <= 2) {
-        $paintUvi.css('background-color', 'green');
+        $paintUVI.css("background-color", "green");
       } else if (uvi >= 3 && uvi < 5) {
-        $paintUvi.css('background-color', 'yellow');
+        $paintUVI.css("background-color", "yellow");
       } else if (uvi >= 6 && uvi < 8) {
-        $paintUvi.css('background-color', 'purple');
-      };
+        $paintUVI.css("background-color", "purple");
+      }
 
       //set up arrays for all data from the response
       $dates = [];
@@ -163,6 +165,6 @@ $searchBtn.on("click", function () {
   weatherDisplay($grabCity);
 });
 
-$(document).on('click', '.divRender', function(e){
-  weatherDisplay($(this).text())
+$(document).on("click", ".divRender", function (e) {
+  weatherDisplay($(this).text());
 });
