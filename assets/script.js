@@ -19,8 +19,8 @@ $searchField = $("#searchField");
 $weatherReport = $("#weatherReport");
 $cityArray = JSON.parse(localStorage.getItem("cities"));
 // hide until populated
-console.log($cityArray[0]);
-window.onload = weatherDisplay($cityArray[0]);
+// console.log($cityArray[0]);
+// window.onload = weatherDisplay($cityArray[0]);
 $fiveDay.hide();
 $weatherReport.hide();
 // var cities = JSON.parse(localStorage.getItem("cities"));
@@ -34,13 +34,15 @@ if ($cityArray != null) {
     $createButton.append(p);
     console.log($createButton);
     $("#results").prepend($createButton);
+    
   }
+  weatherDisplay($cityArray[$cityArray.length-1]);
 } else {
   $cityArray = [];
 }
 
 function weatherDisplay($grabCity) {
-  event.preventDefault();
+  // event.preventDefault();
 
   $queryUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
