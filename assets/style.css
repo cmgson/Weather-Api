@@ -93,4 +93,8 @@ body {
     background-color:rgba(29, 101, 255, 0.959);
     box-shadow: 5px 5px cornflowerblue;
   }
+
+  .card-body {
+    padding: 5px;
+  }
   
