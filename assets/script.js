@@ -2,8 +2,8 @@ $latRelay = "";
 $lonRelay = "";
 $grabCity = "";
 
-$todaysDate = moment().format("LL");
-$("#currentDate").text($todaysDate);
+// $todaysDate = moment().format("LL");
+// $("#currentDate").text($todaysDate);
 
 $apiKey = "9ec8fa29518e4540182f9fb78ea5599d";
 
@@ -42,7 +42,6 @@ if ($cityArray != null) {
 }
 
 function weatherDisplay($grabCity) {
-  // event.preventDefault();
 
   $queryUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -53,12 +52,16 @@ function weatherDisplay($grabCity) {
   $.ajax({
     url: $queryUrl,
     method: "GET",
-  }).then(function (response) {
+    error: function (xhr, status, error) {
+      var errorMessage = xhr.status + ": " + xhr.statusText;
+      alert("error, not a city" + errorMessage);
+      
+    },
+  success: function (response) {
+    console.log(response);
     $latRelay = response.coord.lat;
     $lonRelay = response.coord.lon;
-    // console.log($latRelay);
-    // console.log($lonRelay);
-    // console.log(response);
+  
     $oneCallUrl =
       "https://api.openweathermap.org/data/2.5/onecall?lat=" +
       $latRelay +
@@ -69,6 +72,8 @@ function weatherDisplay($grabCity) {
       $apiKey;
     // console.log(response.name);
     $paintCity.text(response.name);
+    $paintCity.append(' '+moment(response.dt, 'X').format("MM/DD/YY"));
+    $paintCity.append('<img src="https://openweathermap.org/img/wn/' + response.weather[0].icon + '.png">');
 
     $.ajax({
       url: $oneCallUrl,
@@ -144,6 +149,8 @@ function weatherDisplay($grabCity) {
       $fiveDay.show();
       $weatherReport.show();
     });
+  }
+
   });
   console.log("this is the city array---" + $cityArray);
   localStorage.setItem("cities", JSON.stringify($cityArray));
