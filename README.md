@@ -2,8 +2,7 @@
 
 ---
 ---
-![dashboard screen-shot]
-(assets/dashboardss.png)
+![dashboard screen-shot](assets/dashboardss.png)
 
 ---
 ---
