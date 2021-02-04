@@ -60,5 +60,5 @@ This by far was the most complete test of the overall skills I have learned in c
 
 ## Links
 Here are links to both the repo, and the deployed page!
-https://cmgson.github.io/Weather-Api/.
+https://cmgson.github.io/Weather-Api/
 https://github.com/cmgson/Weather-Api
