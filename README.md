@@ -8,7 +8,7 @@
 ---
 Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+I used the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions.  I used `localStorage` to store any persistent data.
 
 ## User Story
 
@@ -52,6 +52,21 @@ You are required to submit the following for review:
 * when you view future weather conditions for that city, you are presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 * when you click on a city in the search history then you are again presented with current and future conditions for that city
 * when you open the weather dashboard then the last city searched is in the forecast area
+
+## Technologies Used
+---
+1. HTML
+2. CSS
+3. Javascript
+4. JQUERY
+5. MomentJS
+6. Local Storage
+7. AJAX
+8. Bootstrap
+
+## In Action
+---
+![app in action](assets/weather_gif.gif)
 
 ## Issues
 
